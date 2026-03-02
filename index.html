@@ -1,177 +1,343 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lion King – Asset Management</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Lion King Asset Management | Exclusive Strategy</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
 
-<style>
-:root{
-  --bg:#ffffff;
-  --dark:#121212;
-  --muted:#aaaaaa;
-  --border:#e6e6e6;
-  --shadow:0 18px 35px rgba(0,0,0,.06);
-}
+    <style>
+:root {
+        --primary: #121212;
+        --accent: #c5a059;
+        --text-muted: #777777;
+        --bg-clean: #fbfbf9;
+        /* upgraded warm white */
+    }
 
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-  font-family:Inter,sans-serif;
-  background:var(--bg);
-  color:var(--dark);
-  display:flex;
-  justify-content:center;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
 
-.container{
-  width:100%;
-  max-width:420px;
-  padding:0 22px 76px;
-}
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-clean);
+            color: var(--primary);
+            overflow-x: hidden;
+        }
 
-/* HEADER */
-.profile-header{
-  text-align:center;
-  padding:56px 0 40px;
-}
-.profile-img{
-  width:128px;
-  height:128px;
-  border-radius:50%;
-  object-fit:cover;
-  box-shadow:var(--shadow);
-  border:4px solid #fff;
-}
-h1{
-  margin-top:18px;
-  font-family:'Playfair Display',serif;
-  font-size:2.4rem;
-  line-height:1.1;
-}
-.subtitle{
-  margin-top:6px;
-  font-size:.65rem;
-  letter-spacing:6px;
-  color:var(--muted);
-}
+        /* HERO */
+        .hero-viewport {
+            height: 50vh;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1;
+            overflow: hidden;
+        }
 
-/* CTA */
-.cta-group{
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-  margin-bottom:56px;
-}
-.btn-premium{
-  display:flex;
-  align-items:center;
-  padding:18px 22px;
-  border-radius:14px;
-  font-size:.95rem;
-  font-weight:600;
-  text-decoration:none;
-  transition:.25s ease;
-}
-.btn-premium svg{
-  width:22px;
-  height:22px;
-  margin-right:16px;
-  flex-shrink:0;
-  opacity:.9;
-}
-.btn-dark{background:#121212;color:#fff}
-.btn-light{background:#fff;color:#121212;border:1px solid var(--border)}
-.btn-wa{background:#fff;color:#25d366;border:1px solid var(--border)}
-.btn-premium:active{transform:scale(.97)}
+        .hero-bg {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://res.cloudinary.com/dzxhnvu4a/image/upload/v1772471334/file_00000000fd707206a992430742b61246_afdehz.png');
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.1s ease-out;
+        }
 
-/* SECTION */
-.section-title{
-  font-family:'Playfair Display',serif;
-  font-size:1.45rem;
-  margin-bottom:22px;
-}
+        /* smooth blend to white */
+        .hero-bg::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+            to bottom,
+            rgba(255,255,255,0) 60%,
+            rgba(251,251,249,0.95) 100%
+            );
+        }
 
+        .main-container {
+            position: relative;
+            z-index: 2;
+            margin-top: 45vh;
+            background-color: var(--bg-clean);
+            border-radius: 40px 40px 0 0;
+            padding: 60px 25px 40px 25px;
+            box-shadow: 0 -20px 60px rgba(0,0,0,0.10);
+        }
 
-/* FOOTER */
-footer{
-  padding-top:70px;
-  text-align:center;
-  font-size:.6rem;
-  letter-spacing:4px;
-  color:#c7c7c7;
-}
-.creator{
-  margin-top:14px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:6px;
-  opacity:.6;
-}
-.creator img{
-  height:12px;
-}
-.creator span{
-  font-size:.55rem;
-  letter-spacing:.5px;
-}
-</style>
+        /* SHINE TITLE */
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            letter-spacing: -0.5px;
+            background: linear-gradient(to right, #121212 20%, #c5a059 40%, #c5a059 60%, #121212 80%);
+            background-size: 200% auto;
+            color: #000;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 5s linear infinite;
+        }
+
+        @keyframes shine {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        .branding-section {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .logo-main {
+            width: 85px;
+            margin-bottom: 25px;
+            transition: 0.5s ease;
+        }
+
+        .subtitle {
+            font-size: 0.7rem;
+            letter-spacing: 7px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-top: 10px;
+            display: block;
+        }
+
+        /* REVEAL */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* EXPERTISE */
+        .expertise-item {
+            padding: 35px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            /* softer divider */
+        }
+
+        .expertise-item h3 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 10px;
+        }
+
+        .expertise-item h3::before {
+            content: "";
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border: 1px solid var(--accent);
+            margin-right: 15px;
+            transform: rotate(45deg);
+        }
+
+        /* PHILOSOPHY */
+        .philosophy-card {
+            background-color: #0c0c0c;
+            color: #fff;
+            padding: 60px 30px;
+            border-radius: 24px;
+            text-align: center;
+            margin: 60px 0;
+        }
+
+        /* BUTTON PREMIUM */
+        .btn-luxury {
+            display: block;
+            width: 100%;
+            background-color: var(--primary);
+            color: #ffffff;
+            text-align: center;
+            padding: 22px;
+            text-decoration: none;
+            border-radius: 14px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transition: all 0.25s ease;
+        }
+
+        .btn-luxury:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+        }
+
+        footer {
+            text-align: center;
+            padding: 60px 0 20px 0;
+            font-size: 0.65rem;
+            color: #aaa;
+            letter-spacing: 2px;
+        }
+    </style>
 </head>
 
 <body>
-<div class="container">
 
-<header class="profile-header">
-  <img src="https://res.cloudinary.com/dzxhnvu4a/image/upload/v1768383054/IMG-20260114-WA0020_efqs1m.jpg" class="profile-img" alt="Lion King">
-  <h1>Lion King</h1>
-  <p class="subtitle">ASSET MANAGEMENT</p>
-</header>
+    <div class="hero-viewport">
+        <div class="hero-bg" id="heroBg"></div>
+    </div>
 
-<div class="cta-group">
+    <div class="main-container">
 
-<a href="tel:+6287776366677" class="btn-premium btn-dark">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-    <path d="M12 2l7 4v6c0 5-3.5 9-7 10-3.5-1-7-5-7-10V6z"/>
-    <path d="M9.5 12.5l2 2 4-4"/>
-  </svg>
-  Add Business Contact
-</a>
+        <!-- BRANDING -->
+        <section class="branding-section reveal">
+            <img src="https://res.cloudinary.com/dzxhnvu4a/image/upload/v1768383054/IMG-20260114-WA0020_efqs1m.jpg" alt="Logo" class="logo-main">
+            <h1>Lion King</h1>
+            <span class="subtitle">Asset Management</span>
+            <p style="margin-top:20px;color:var(--text-muted);line-height:1.8;font-weight:300;">
+                AStrategic asset management leveraging innovative frameworks to maximize capital growth and digital value in a dynamic market landscape.
+            </section>
 
-<a href="https://wa.me/c/6287776366677" class="btn-premium btn-light">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-    <rect x="4" y="6" width="6" height="12" rx="1"/>
-    <rect x="10" y="9" width="6" height="9" rx="1"/>
-    <rect x="16" y="4" width="4" height="14" rx="1"/>
-  </svg>
-  View Catalog Detail
-</a>
+            <!-- ABOUT -->
+            <section class="content-section reveal" style="margin-bottom:70px;">
+                <h2 style="font-family:'Playfair Display',serif;font-size:1.8rem;margin-bottom:20px;">
+                    Our Approach
+                </h2>
+                <p style="color:var(--text-muted);font-weight:300;line-height:1.9;">
+                    Lion King Asset Management operates on a conviction-driven philosophy,
+                    combining rigorous risk discipline with opportunistic capital deployment.
+                    Our framework integrates macro awareness, quantitative screening,
+                    and deep fundamental review to identify asymmetric opportunities
+                    across evolving market environments.
+                </p>
+                <p style="color:var(--text-muted);font-weight:300;line-height:1.9;margin-top:18px;">
+                    We partner selectively with clients who prioritize capital resilience,
+                    structural growth, and long-horizon wealth architecture over
+                    short-term speculation.
+                </p>
+            </section>
 
-<a href="https://wa.me/+6287776366677?text=Ask%20for%20consulting" class="btn-premium btn-wa">
-  <svg viewBox="0 0 24 24" fill="none" stroke="#25d366" stroke-width="1.6">
-    <circle cx="7.5" cy="12" r="3"/>
-    <path d="M10.5 12h10"/>
-    <path d="M17 12v2"/>
-    <path d="M19 12v2"/>
-  </svg>
-  Consult on WhatsApp
-</a>
+            <!-- STRATEGIC PILLARS -->
+            <section class="content-section reveal">
+                <h2 style="font-family:'Playfair Display',serif;font-size:1.8rem;margin-bottom:30px;">
+                    Strategic Pillars
+                </h2>
 
-</div>
+                <div class="expertise-item">
+                    <h3>Capital Preservation</h3>
+                    <p style="color:var(--text-muted);font-weight:300;line-height:1.8;">
+                        Our first mandate is the protection of client capital. We employ
+                        multi-layer risk controls, dynamic exposure management, and
+                        downside-focused portfolio construction to safeguard core wealth
+                        across volatile cycles.
+                    </p>
+                </div>
 
+                <div class="expertise-item">
+                    <h3>Alpha Generation</h3>
+                    <p style="color:var(--text-muted);font-weight:300;line-height:1.8;">
+                        Through proprietary screening and selective positioning,
+                        we pursue differentiated return streams designed to outperform
+                        conventional benchmarks while maintaining disciplined risk posture.
+                    </p>
+                </div>
 
-<h2 class="section-title">Commmunities for Opportunities</h2>
+                <div class="expertise-item">
+                    <h3>Strategic Allocation</h3>
+                    <p style="color:var(--text-muted);font-weight:300;line-height:1.8;">
+                        Asset allocation remains the primary driver of long-term outcomes.
+                        We continuously recalibrate portfolio weightings to reflect
+                        macro transitions, liquidity regimes, and structural growth themes.
+                    </p>
+                </div>
+            </section>
 
+            <!-- PHILOSOPHY -->
+            <section class="philosophy-card reveal">
+                <p style="font-family:'Playfair Display',serif;font-size:1.5rem;font-style:italic;line-height:1.6;">
+                    "Beyond growth, we engineer durability — building portfolios
+                    designed to endure across generations."
+                </p>
+            </section>
 
+            <!-- GLOBAL ADVISORY -->
+            <section class="content-section reveal" style="margin-bottom:70px;">
+                <h2 style="font-family:'Playfair Display',serif;font-size:1.8rem;margin-bottom:20px;">
+                    Global Advisory
+                </h2>
+                <p style="color:var(--text-muted);font-weight:300;line-height:1.9;">
+                    Our advisory model is deliberately selective and relationship-driven.
+                    Each mandate is approached with bespoke portfolio architecture,
+                    ensuring alignment between strategic allocation, liquidity needs,
+                    and long-term capital objectives.
+                </p>
+                <p style="color:var(--text-muted);font-weight:300;line-height:1.9;margin-top:18px;">
+                    We maintain a global perspective while executing with disciplined
+                    precision, enabling clients to navigate uncertainty with clarity
+                    and structured confidence.
+                </p>
+            </section>
 
-<footer>
-  &copy LION KING ASSET MANAGEMENT
-  <div>
-    <img src="https://res.cloudinary.com/dzxhnvu4a/image/upload/v1768383044/IMG-20260114-WA0021_diuypl.jpg" alt="" style="width:20px; height:20px; border-radius:50%; margin-top:5px;">
-  </div>
-</footer>
+            <!-- CTA -->
+            <a href="https://wa.me/6287776366677?text=*INFO*%20Lion%20King%20Asset%20Management" class="btn-luxury">
+                Contact Specialist
+            </a>
 
-</div>
-</body>
+            <footer>
+                &copy; 2026 LION KING ASSET MANAGEMENT <br>
+                PRIVATE WEALTH DIVISION
+            </footer>
+
+        </div>
+        <script>
+            const reveals = document.querySelectorAll('.reveal');
+            const heroBg = document.getElementById('heroBg');
+            const logo = document.querySelector('.logo-main');
+
+            const revealOnScroll = () => {
+                reveals.forEach(el => {
+                    const windowHeight = window.innerHeight;
+                    const elementTop = el.getBoundingClientRect().top;
+                    const elementVisible = 100;
+
+                    if (elementTop < windowHeight - elementVisible) {
+                        el.classList.add('active');
+                    }
+                });
+            };
+
+            let ticking = false;
+            window.addEventListener('scroll', () => {
+                if (!ticking) {
+                    window.requestAnimationFrame(() => {
+                        let scrollVal = window.scrollY;
+
+                        if (heroBg) {
+                            heroBg.style.transform = `scale(${1 + scrollVal * 0.0005})`;
+                        }
+
+                        if (logo) {
+                            logo.style.transform = `scale(${1 - scrollVal * 0.0003})`;
+                            logo.style.opacity = Math.max(0.6, 1 - scrollVal * 0.002);
+                        }
+
+                        revealOnScroll();
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            });
+
+            revealOnScroll();
+        </script>
+
+    </body>
 </html>
