@@ -98,12 +98,24 @@
         }
 
         .logo-main {
-            width: 225px;
-            height: 225px;
-            margin-bottom: 25px;
-            border-radius: 26px;
-            transition: 0.5s ease;
+            /* Dimensi baru yang lebih seimbang */
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            /* Memastikan gambar tidak gepeng */
+
+            margin-bottom: 30px;
+            border-radius: 20px;
+            /* Sedikit lebih melengkung agar elegan */
+
+            /* Tambahan dekorasi profesional */
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            /* Border emas tipis */
+
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
+
 
         .subtitle {
             font-size: 0.7rem;
@@ -327,9 +339,11 @@
                         }
 
                         if (logo) {
-                            logo.style.transform = `scale(${1 - scrollVal * 0.0003})`;
-                            logo.style.opacity = Math.max(0.6, 1 - scrollVal * 0.002);
+                            // Logo mengecil sedikit saat scroll, tapi tetap terlihat jelas
+                            logo.style.transform = `scale(${1 - scrollVal * 0.0002})`;
+                            logo.style.opacity = Math.max(0.8, 1 - scrollVal * 0.001);
                         }
+
 
                         revealOnScroll();
                         ticking = false;
